@@ -32,7 +32,8 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
-    "webpack-cli": "^3.1.0",
-    "better-scroll": "^0.1.15"
+    "better-scroll": "^0.1.15",
+    "iview": "^3.0.0",
+    "webpack-cli": "^3.1.0"
   }
 }
