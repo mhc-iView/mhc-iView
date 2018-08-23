@@ -2,8 +2,11 @@
   <div id="app">
     <div class="container">
       <h1>Example</h1>
-      <section data-title="分页">
-        <Pagination :pageNo="1" :totalPage="100" :totalCount="2000"></Pagination>
+      <section data-title="jsonEditor">
+        <code>JsonEditor is base on  <a href="https://github.com/codemirror/CodeMirror" target="_blank">CodeMirrorr</a> , lint base on json-lint </code>
+        <div class="editor-container">
+          <json-editor ref="jsonEditor" v-model="value"/>
+        </div>
       </section>
       <section data-title="日历">
         <Calendar></Calendar>
@@ -16,14 +19,16 @@
 </template>
 
 <script>
-  import Pagination from './pc/Pagination.vue'
   import Calendar from './pc/Calendar.vue'
+  import JsonEditor from './pc/JsonEditor.vue'
   import Slider from './phone/Slider.vue'
+
+  const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
     name: 'app',
     data() {
       return {
-        message: 'test',
+        value: JSON.parse(jsonData),
         imgs:['http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/318993.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/319680.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/316605.jpg'
@@ -31,7 +36,7 @@
       }
     },
     components: {
-      Pagination,
+      JsonEditor,
       Calendar,
       Slider
     }
@@ -69,6 +74,11 @@
     font-size: 18px;
     font-weight: bold;
     color: #f05b72;
+  }
+
+  .editor-container{
+    position: relative;
+    height: 100%;
   }
 
 </style>

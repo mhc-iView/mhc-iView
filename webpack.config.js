@@ -38,7 +38,6 @@ module.exports = {
       },
       {
         test: /\.css|\.scss$/,
-        exclude: /node_modules/,
         use: [
           "style-loader", // creates style nodes from JS strings
           "css-loader", // translates CSS into CommonJS
@@ -47,7 +46,6 @@ module.exports = {
       },
       {
         test: /\.png|jpe?g|gif|svg$/,
-        exclude: /node_modules/,
         loader:  "url-loader"
       }
     ]
