@@ -68,5 +68,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     open:true, // 自动打开浏览器，每次启动服务器会自动打开默认的浏览器
-  }
+  },
+  target: "web"
 };

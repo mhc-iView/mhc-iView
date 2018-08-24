@@ -4,7 +4,6 @@ import { Icon, Button } from 'iview';
 import 'iview/dist/styles/iview.css';
 
 //按需引入iView组件
-console.log('iview', Icon, Button);
 Vue.component('Icon', Icon);
 Vue.component('Button', Button);
 //iView3.0按需引入的Bug(https://segmentfault.com/a/1190000016009449)

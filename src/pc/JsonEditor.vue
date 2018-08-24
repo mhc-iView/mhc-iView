@@ -26,7 +26,7 @@
       value(value) {
         const editor_value = this.jsonEditor.getValue();
         if (value !== editor_value) {
-          this.jsonEditor.setValue(JSON.stringify(this.value, null, 2))
+          this.jsonEditor.setValue(window.JSON.stringify(this.value, null, 2))
         }
       }
     },
@@ -38,7 +38,7 @@
         theme: 'rubyblue',
         lint: true
       })
-      this.jsonEditor.setValue(JSON.stringify(this.value, null, 2))
+      this.jsonEditor.setValue(window.JSON.stringify(this.value, null, 2))
       this.jsonEditor.on('change', cm => {
         this.$emit('changed', cm.getValue())
         this.$emit('input', cm.getValue())
