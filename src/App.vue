@@ -58,8 +58,8 @@
   }
 
   section {
-    padding: 70px 20px 20px 20px;
-    margin: 50px auto;
+    padding: 70px 20px 20px 20px!important;
+    margin: 50px auto!important;
     box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .36);
     width: 80%;
     background-color: #fff;
