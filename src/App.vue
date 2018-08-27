@@ -11,6 +11,9 @@
       <section data-title="日历">
         <Calendar></Calendar>
       </section>
+      <section data-title="异常页">
+        <Exception></Exception>
+      </section>
       <section data-title="轮播图">
         <Slider :imgArr="imgs"/>
       </section>
@@ -21,6 +24,7 @@
 <script>
   import Calendar from './pc/Calendar.vue'
   import JsonEditor from './pc/JsonEditor.vue'
+  import Exception from './pc/Exception.vue'
   import Slider from './phone/Slider.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
@@ -38,6 +42,7 @@
     components: {
       JsonEditor,
       Calendar,
+      Exception,
       Slider
     }
   }
