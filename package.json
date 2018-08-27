@@ -34,6 +34,8 @@
   },
   "dependencies": {
     "better-scroll": "^0.1.15",
+    "element-ui": "^2.4.4",
+    "viewerjs": "^1.2.0",
     "codemirror": "^5.39.2",
     "iview": "^3.0.0",
     "jsonlint": "^1.6.3",

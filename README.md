@@ -18,7 +18,8 @@ npm run start
 ### 功能列表
 
 - [x] Exception 异常页
-- [ ] DatePicker 日历
+- [x] Slider 轮播图
+- [x] viewImages 图片查看器
 - [ ] Editor 文本编辑器
 - [ ] JSON Editor JSON编辑器
 - [ ] Counter 计数器

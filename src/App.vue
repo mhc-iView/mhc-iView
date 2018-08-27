@@ -11,8 +11,13 @@
       <section data-title="日历">
         <Calendar></Calendar>
       </section>
+     <!--  轮播-->
       <section data-title="轮播图">
         <Slider :imgArr="imgs"/>
+      </section>
+      <!-- 图片查看器-->
+      <section data-title="照片查看">
+        <ViewImages :imageList="photos" :title="title"/>
       </section>
     </div>
   </div>
@@ -22,6 +27,7 @@
   import Calendar from './pc/Calendar.vue'
   import JsonEditor from './pc/JsonEditor.vue'
   import Slider from './phone/Slider.vue'
+  import ViewImages from './common/viewImages.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -29,21 +35,29 @@
     data() {
       return {
         value: JSON.parse(jsonData),
+        // 轮播数据
         imgs:['http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/318993.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/319680.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/316605.jpg'
-        ]
+        ],
+        // 照片查看器
+        photos:['http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/318993.jpg',
+          'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/319680.jpg',
+          'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/316605.jpg'
+        ],
+        title:'采购合同'
       }
     },
     components: {
       JsonEditor,
       Calendar,
-      Slider
+      Slider,
+      ViewImages
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .container {
     width: 100%;
     overflow: hidden;
