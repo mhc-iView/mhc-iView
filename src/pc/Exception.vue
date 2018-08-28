@@ -12,7 +12,7 @@
                             <div class="bullshit__info">怎么了！</div>
                             <div class="bullshit__headline">你没有权限去该页面</div>
                             <div class="bullshit__info">如有不满请联系你领导</div>
-                            <a href="#" class="bullshit__return-home">返回首页</a>
+                            <a class="bullshit__return-home" @click=jumpBack>返回首页</a>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                             <div class="bullshit__info">发生了什么！</div>
                             <div class="bullshit__headline">{{ message }}</div>
                             <div class="bullshit__info">请检查您输入的网址是否正确...</div>
-                            <a href="#" class="bullshit__return-home">返回首页</a>
+                            <a class="bullshit__return-home" @click=jumpBack>返回首页</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                             <div class="bullshit__info">Oh，发生了点错误！</div>
                             <div class="bullshit__headline">错误信息：{{ errorMessage }}</div>
                             <div class="bullshit__info">服务器可能病了！请稍后再试...</div>
-                            <a href="#" class="bullshit__return-home">返回首页</a>
+                            <a class="bullshit__return-home" @click=jumpBack>返回首页</a>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,11 @@
         type: String,
         validator(value) {
           return ['401', '404', '500'].indexOf(value) > -1;
-        }
+        },
+      },
+      backPage: {
+        type: String,
+        default: '/'
       }
     },
     data() {
@@ -99,7 +103,13 @@
         dialogVisible: false
       }
     },
-    methods: {}
+    methods: {
+        jumpBack: function() {
+            if (this.backPage) {
+                window.location.href = this.backPage;
+            }
+        }
+    }
   }
 </script>
 

@@ -16,7 +16,20 @@
   export default {
     name: 'JsonEditor',
     /* eslint-disable vue/require-prop-types */
-    props: ['value'],
+    props: {
+      value: {
+        type: [Array, Object],
+        default: {}
+      },
+      theme: {
+        type: String,
+        default: 'rubyblue'
+      },
+      lint: {
+        type: Boolean,
+        default: true
+      }
+    },
     data() {
       return {
         jsonEditor: false
@@ -35,8 +48,8 @@
         lineNumbers: true,
         mode: 'application/json',
         gutters: ['CodeMirror-lint-markers'],
-        theme: 'rubyblue',
-        lint: true
+        theme: this.theme,
+        lint: this.lint
       })
       this.jsonEditor.setValue(window.JSON.stringify(this.value, null, 2))
       this.jsonEditor.on('change', cm => {
@@ -52,7 +65,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .json-editor{
     height: 100%;
     position: relative;
