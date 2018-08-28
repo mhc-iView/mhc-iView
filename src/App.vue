@@ -17,6 +17,10 @@
       <section data-title="轮播图">
         <Slider :imgArr="imgs"/>
       </section>
+      <section data-title="省市区联动">
+        <span style="margin-left:40%;">地址：{{ `${privance} ${city} ${area}` }}</span><br/>
+        <CityLinkage @changeSelected="getChange"></CityLinkage>
+      </section>
     </div>
   </div>
 </template>
@@ -26,6 +30,7 @@
   import JsonEditor from './pc/JsonEditor.vue'
   import Exception from './pc/Exception.vue'
   import Slider from './phone/Slider.vue'
+  import CityLinkage from './pc/CityLinkage'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -36,14 +41,25 @@
         imgs:['http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/318993.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/319680.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/316605.jpg'
-        ]
+        ],
+        privance: '',
+        city: '',
+        area: '',
       }
     },
     components: {
       JsonEditor,
       Calendar,
       Exception,
-      Slider
+      Slider,
+      CityLinkage
+    },
+    methods: {
+      getChange (pri, city, area) {
+        this.privance = pri
+        this.city = city
+        this.area = area
+      }
     }
   }
 </script>

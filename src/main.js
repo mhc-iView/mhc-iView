@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { Icon, Button } from 'iview';
+import iView from 'iView';
 import 'iview/dist/styles/iview.css';
 
+Vue.use(iView)
 //按需引入iView组件
-Vue.component('Icon', Icon);
-Vue.component('Button', Button);
-//iView3.0按需引入的Bug(https://segmentfault.com/a/1190000016009449)
-Vue.prototype.$IVIEW = {};
+// Vue.component('Icon', Icon);
+// Vue.component('Button', Button);
+// Vue.component('Select', Select);
+// //iView3.0按需引入的Bug(https://segmentfault.com/a/1190000016009449)
+// Vue.prototype.$IVIEW = {};
 
 new Vue({
   el: '#app',
