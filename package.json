@@ -16,6 +16,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "css-loader": "^1.0.0",
+    "element-ui": "^2.4.4",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.9.3",
     "postcss-load": "^0.1.6",
@@ -34,11 +35,11 @@
   },
   "dependencies": {
     "better-scroll": "^0.1.15",
-    "element-ui": "^2.4.4",
-    "viewerjs": "^1.2.0",
     "codemirror": "^5.39.2",
+    "file-loader": "^2.0.0",
     "iview": "^3.0.0",
     "jsonlint": "^1.6.3",
+    "viewerjs": "^1.2.0",
     "webpack-cli": "^3.1.0"
   }
 }

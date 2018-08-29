@@ -4,16 +4,15 @@
       <el-col :span="24"><h4 class="title-text">{{ title + '：' }}</h4></el-col>
       <el-col
         v-for="(o, index) in imageList"
-        :span="4"
+        :span="6"
+        :offset="1"
         :key="index">
-        <el-card :body-style="{ padding: '1px' }">
           <img
             :alt="index"
             :src="o+'?imageView2/2/w/100/h/100'"
             :data-original="o"
             class="image"
             @click="initViewer()">
-        </el-card>
       </el-col>
     </el-row>
   </div>
@@ -39,8 +38,6 @@ export default {
     return {
       viewerId: null
     }
-  },
-  created () {
   },
   methods: {
     initViewer () {
@@ -73,8 +70,7 @@ export default {
 
 <style lang="scss" scoped>
   .image {
-    width: 30%;
-    margin-right: 10px;
+    width: 90%;
     display: inline-block;
     cursor: pointer;
   }

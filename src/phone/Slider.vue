@@ -176,7 +176,7 @@
                     width: 8px;
                     height: 8px;
                     border-radius: 50%;
-                    background: white;
+                    background: gray;
                     &.active {
                         width: 20px;
                         border-radius: 5px;
