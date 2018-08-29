@@ -5,17 +5,17 @@
 * @Last Modified time: 2018-05-25 12:45:00
 */
 <template>
-  <section class="wh_container">
+  <div class="wh_container">
     <div class="wh_content_all" :class="{hide:!showCalendar}">
       <div class="wh_top_changge">
         <li>
         </li>
         <span class="btn-month" @click.prevent="toPreMonth">
-          <img src="../assets/images/icon-left-gray.png" alt="" class="icon-change-month">
+          <Icon type="ios-arrow-back"  class="icon-change-month"/>
         </span>
         <li class="wh_content_li">{{dateTop}}</li>
         <span class="btn-month" @click.prevent="toNextMonth">
-           <img src="../assets/images/icon-right-gray.png" alt="" class="icon-change-month">
+          <Icon type="ios-arrow-forward"  class="icon-change-month"/>
         </span>
         <li>
         </li>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 <script>
   export default {
@@ -321,6 +321,10 @@
   .wh_container {
     max-width: 410px;
     margin: auto;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
   }
   .border-bottom {
     content: '';
@@ -346,7 +350,6 @@
   .wh_content_all {
     font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', STHeiti, 'Microsoft Yahei', Tahoma,
     Simsun, sans-serif;
-    background-color: #ffffff;
     width: 100%;
     overflow: hidden;
     padding-bottom: 8px;
@@ -374,7 +377,7 @@
   }
   .wh_content_item {
     font-size: 16px;
-    width: 13.4%;
+    width: 14.28%;
     padding-bottom: 11.14%;
     text-align: center;
     color: rgba(0, 0, 0, 0.9);
@@ -397,7 +400,8 @@
     line-height: 37px;
   }
   .icon-change-month {
-    height: 10px;
+    height: 40px;
+    line-height: 40px;
   }
   @media screen and (min-width: 460px) {
     .wh_content_item li:hover {
@@ -407,6 +411,7 @@
   }
   .wh_top_changge {
     display: flex;
+    padding-top: 6px;
   }
   .wh_top_changge li {
     /*cursor: pointer;*/
@@ -420,7 +425,9 @@
   }
   .wh_top_changge .wh_content_li {
     cursor: auto;
+    color: #515a6e;
     flex: 2;
+    font-size: 16px;
   }
   .btn-month {
     display: flex;
@@ -431,6 +438,7 @@
     justify-content: center;
     align-items: center;
     flex: 1;
+    cursor: pointer;
   }
   .btn-month:link, .btn-month:visited, .btn-month:active {
     color: #00bcd4;
