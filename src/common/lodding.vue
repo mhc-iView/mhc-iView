@@ -1,4 +1,9 @@
 <template>
+    <el-row
+            type="flex"
+            justify="center"
+            align="middle"
+            class="el-row-height">
     <div class="loading" v-if="true" :style="{
           background: `${background}`,
           opacity: `${opacityDeep}`,
@@ -18,6 +23,7 @@
         </div>
         <p class="desc">{{ loddingText }}</p>
     </div>
+    </el-row>
 </template>
 <script>
   export default {
@@ -52,9 +58,12 @@
         width: 100% ;
         text-align: center;
     }
+    .desc{
+        line-height:20px;
+    }
     // --------------------------
     .lodding1 {
-        margin: 100px auto;
+        margin: 30px auto;
         width: 50px;
         height: 60px;
         text-align: center;
