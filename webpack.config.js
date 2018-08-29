@@ -45,8 +45,12 @@ module.exports = {
         ]
       },
       {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader'
+      },
+      {
         test: /\.png|jpe?g|gif|svg$/,
-        loader:  "url-loader"
+        loader:  "file-loader"
       }
     ]
   },
@@ -64,5 +68,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     open:true, // 自动打开浏览器，每次启动服务器会自动打开默认的浏览器
-  }
+  },
+  target: "web",
+  mode: "development"
 };
