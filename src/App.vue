@@ -17,6 +17,9 @@
       <section data-title="轮播图">
         <Slider :imgArr="imgs"/>
       </section>
+      <section data-title="倒计时">
+        <CountDown :endTime="endTime"></CountDown>
+      </section>
       <section data-title="省市区联动">
         <span style="margin-left:40%;">地址：{{ `${privance} ${city} ${area}` }}</span><br/>
         <CityLinkage @changeSelected="getChange"></CityLinkage>
@@ -31,6 +34,7 @@
   import Exception from './pc/Exception.vue'
   import Slider from './phone/Slider.vue'
   import CityLinkage from './pc/CityLinkage'
+  import CountDown from './pc/CountDown.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -45,6 +49,7 @@
         privance: '',
         city: '',
         area: '',
+        endTime: '2018-09-30'
       }
     },
     components: {
@@ -52,7 +57,8 @@
       Calendar,
       Exception,
       Slider,
-      CityLinkage
+      CityLinkage,
+      CountDown
     },
     methods: {
       getChange (pri, city, area) {
