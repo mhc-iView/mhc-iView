@@ -20,12 +20,24 @@
       <section data-title="轮播图">
         <Slider :imgArr="imgs"/>
       </section>
+      <!-- 图片查看器-->
+      <section data-title="照片查看">
+        <ViewImages :imageList="photos" :title="title"/>
+      </section>
       <section data-title="倒计时">
         <CountDown :endTime="endTime"></CountDown>
       </section>
       <section data-title="省市区联动">
         <span style="margin-left:40%;">地址：{{ `${privance} ${city} ${area}` }}</span><br/>
         <CityLinkage @changeSelected="getChange"></CityLinkage>
+      </section>
+      <!-- 菜单栏-->
+      <section data-title="菜单栏">
+        <MyWorkbench :meunData="meunData"/>
+      </section>
+      <!-- lodding-->
+      <section data-title="加载动画">
+        <Lodding :loddingText="loddingText" :background="background" :className="className" :opacityDeep="opacityDeep" :color="color"/>
       </section>
     </div>
   </div>
@@ -39,6 +51,9 @@
   import Slider from './phone/Slider.vue'
   import CityLinkage from './pc/CityLinkage'
   import CountDown from './pc/CountDown.vue'
+  import ViewImages from './common/viewImages.vue'
+  import Lodding from './common/lodding.vue'
+  import MyWorkbench from './pc/myWorkbench/MyWorkbench.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -46,6 +61,7 @@
     data() {
       return {
         value: JSON.parse(jsonData),
+        // 轮播数据
         imgs:['http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/318993.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/319680.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/316605.jpg'
@@ -84,7 +100,31 @@
         'http://img0.imgtn.bdimg.com/it/u=3756090549,2773217785&fm=200&gp=0.jpg',
         'http://img5.imgtn.bdimg.com/it/u=1841827901,1655131218&fm=26&gp=0.jpg',
         'http://img0.imgtn.bdimg.com/it/u=1254316055,1307220925&fm=200&gp=0.jpg',
-        ]
+        ],
+        // 照片查看器
+        photos:['http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/318993.jpg',
+          'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/319680.jpg',
+          'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/316605.jpg'
+        ],
+        title:'采购合同',
+        // 菜单栏
+        meunData: [{
+          imgUrl: "https://pic.51zhangdan.com/u51/storage/project_4771/175615c5-bcd7-a52e-a516-717395038bb6.png",
+          name: "账单管理",
+          number: 110,
+          url: "http://www.baidu.com"
+        },{
+          imgUrl: "https://pic.51zhangdan.com/u51/storage/project_4771/10d8d74c-92f6-f88c-94a8-9d4e7be79a04.png",
+          name: "金融服务",
+          number: 120,
+          url: "http://www.baidu.com"
+        }],
+        // lodding
+        loddingText:'加载中...',
+        background:'black',
+        opacityDeep:0.6,
+        color:'blue',
+        className: 'lodding1'
       }
     },
     components: {
@@ -94,6 +134,9 @@
       PictureWaterfall,
       Slider,
       CityLinkage,
+      ViewImages,
+      MyWorkbench,
+      Lodding,
       CountDown
     },
     methods: {
@@ -106,7 +149,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .container {
     width: 100%;
     overflow: hidden;
