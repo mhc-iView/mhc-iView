@@ -18,6 +18,7 @@ npm run start
 ### 功能列表
 
 - [x] Exception 异常页
+- [ ] SplitPanel 分割栏
 - [ ] DatePicker 日历
 - [ ] Editor 文本编辑器
 - [x] JSON Editor JSON编辑器

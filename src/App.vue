@@ -14,6 +14,9 @@
       <section data-title="异常页">
         <Exception></Exception>
       </section>
+      <section data-title="图片瀑布流">
+        <picture-waterfall :data="waterfallImages"></picture-waterfall>
+      </section>
       <section data-title="轮播图">
         <Slider :imgArr="imgs"/>
       </section>
@@ -29,6 +32,7 @@
   import Calendar from './pc/Calendar.vue'
   import JsonEditor from './pc/JsonEditor.vue'
   import Exception from './pc/Exception.vue'
+  import PictureWaterfall from './pc/PictureWaterfall.vue'
   import Slider from './phone/Slider.vue'
   import CityLinkage from './pc/CityLinkage'
 
@@ -45,14 +49,46 @@
         privance: '',
         city: '',
         area: '',
+        waterfallImages: 
+        ['http://img0.imgtn.bdimg.com/it/u=2502313064,1397167486&fm=26&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=820187427,4212180164&fm=26&gp=0.jpg',
+        'http://img4.imgtn.bdimg.com/it/u=3561759131,2732048751&fm=26&gp=0.jpg',
+        'http://img0.imgtn.bdimg.com/it/u=428549871,4004515111&fm=26&gp=0.jpg',
+        'http://img2.imgtn.bdimg.com/it/u=1977804817,1381775671&fm=200&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=2339694865,2382456002&fm=26&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=1706662613,4153832992&fm=26&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=1134559476,164772601&fm=200&gp=0.jpg',
+        'http://img2.imgtn.bdimg.com/it/u=54202095,3670836593&fm=200&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=2022888886,2757317261&fm=200&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=2818660063,53944668&fm=200&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=1598903339,3545123556&fm=200&gp=0.jpg',
+        'http://img0.imgtn.bdimg.com/it/u=3756090549,2773217785&fm=200&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=1841827901,1655131218&fm=26&gp=0.jpg',
+        'http://img0.imgtn.bdimg.com/it/u=1254316055,1307220925&fm=200&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=820187427,4212180164&fm=26&gp=0.jpg',
+        'http://img4.imgtn.bdimg.com/it/u=3561759131,2732048751&fm=26&gp=0.jpg',
+        'http://img0.imgtn.bdimg.com/it/u=428549871,4004515111&fm=26&gp=0.jpg',
+        'http://img2.imgtn.bdimg.com/it/u=1977804817,1381775671&fm=200&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=2339694865,2382456002&fm=26&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=1706662613,4153832992&fm=26&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=1134559476,164772601&fm=200&gp=0.jpg',
+        'http://img2.imgtn.bdimg.com/it/u=54202095,3670836593&fm=200&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=2022888886,2757317261&fm=200&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=2818660063,53944668&fm=200&gp=0.jpg',
+        'http://img1.imgtn.bdimg.com/it/u=1598903339,3545123556&fm=200&gp=0.jpg',
+        'http://img0.imgtn.bdimg.com/it/u=3756090549,2773217785&fm=200&gp=0.jpg',
+        'http://img5.imgtn.bdimg.com/it/u=1841827901,1655131218&fm=26&gp=0.jpg',
+        'http://img0.imgtn.bdimg.com/it/u=1254316055,1307220925&fm=200&gp=0.jpg',
+        ]
       }
     },
     components: {
       JsonEditor,
       Calendar,
       Exception,
-      Slider,
-      CityLinkage
+      PictureWaterfall,
+      CityLinkage,
+      Slider
     },
     methods: {
       getChange (pri, city, area) {
@@ -103,3 +139,4 @@
   }
 
 </style>
+
