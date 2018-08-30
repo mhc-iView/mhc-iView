@@ -23,6 +23,7 @@
           self.clickItem(e)
         }
       }
+      return {}
     },
     props: {
       colorList: {
