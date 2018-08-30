@@ -21,13 +21,9 @@ export default {
   },
   data () {
     return {
-      meunData: {
-//        applyDomain: [],
-//        orderDomain: [],
-//        asetsDomain: []
+
       }
     }
-  }
 }
 </script>
 
