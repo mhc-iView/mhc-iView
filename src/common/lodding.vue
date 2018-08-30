@@ -37,7 +37,7 @@
         default: ' '
       },
       opacityDeep: {
-        type: String,
+        type: Number,
         default: ' '
       },
       color: {
