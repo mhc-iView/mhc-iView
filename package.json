@@ -38,8 +38,10 @@
   "dependencies": {
     "better-scroll": "^0.1.15",
     "codemirror": "^5.39.2",
+    "echarts": "^4.1.0",
     "iview": "^3.0.0",
     "jsonlint": "^1.6.3",
+    "v-charts": "^1.17.10",
     "viewerjs": "^1.2.0",
     "webpack-cli": "^3.1.0"
   }

@@ -4,9 +4,11 @@ import iView from 'iView';
 import ElementUI from 'element-ui';
 import 'iview/dist/styles/iview.css';
 import 'element-ui/lib/theme-chalk/index.css'
+import VCharts from 'v-charts'
 
 Vue.use(iView)
 Vue.use(ElementUI)
+Vue.use(VCharts)
 //按需引入iView组件
 // Vue.component('Icon', Icon);
 // Vue.component('Button', Button);

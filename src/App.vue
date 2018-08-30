@@ -39,6 +39,9 @@
       <section data-title="加载动画">
         <Lodding :loddingText="loddingText" :background="background" :className="className" :opacityDeep="opacityDeep" :color="color"/>
       </section>
+      <section data-title="饼状图">
+        <Demo :chartData="chartData" :title="chartTitle" @clickItem="clickItem"></Demo>
+      </section>
     </div>
   </div>
 </template>
@@ -54,6 +57,7 @@
   import ViewImages from './common/viewImages.vue'
   import Lodding from './common/lodding.vue'
   import MyWorkbench from './pc/myWorkbench/MyWorkbench.vue'
+  import Demo from './pc/Echarts.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -66,9 +70,11 @@
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/319680.jpg',
           'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/316605.jpg'
         ],
+        // 省市区联动
         privance: '',
         city: '',
         area: '',
+        // 倒计时
         endTime: '2018-09-30',
         waterfallImages: 
         ['http://img0.imgtn.bdimg.com/it/u=2502313064,1397167486&fm=26&gp=0.jpg',
@@ -124,7 +130,20 @@
         background:'black',
         opacityDeep:0.6,
         color:'blue',
-        className: 'lodding1'
+        className: 'lodding1',
+        // 饼形图
+        chartTitle: '水果数量分布图',
+        chartData: {
+          columns: ['水果', '数量'],
+          rows: [
+            { '水果': '猕猴桃', '数量': 1393},
+            { '水果': '香蕉', '数量': 3530 },
+            { '水果': '梨', '数量': 2923 },
+            { '水果': '桃子', '数量': 1723 },
+            { '水果': '葡萄', '数量': 3792 },
+            { '水果': '芒果', '数量': 4593 }
+          ]
+        }
       }
     },
     components: {
@@ -137,13 +156,18 @@
       ViewImages,
       MyWorkbench,
       Lodding,
-      CountDown
+      CountDown,
+      Demo
     },
     methods: {
       getChange (pri, city, area) {
         this.privance = pri
         this.city = city
         this.area = area
+      },
+      // 点击饼状图某一项之后想进行的操作
+      clickItem(e) {
+        console.log(e)
       }
     }
   }
