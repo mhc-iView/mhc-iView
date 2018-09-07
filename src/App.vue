@@ -40,7 +40,7 @@
         <Lodding :loddingText="loddingText" :background="background" :className="className" :opacityDeep="opacityDeep" :color="color"/>
       </section>
       <section data-title="饼状图">
-        <Demo :chartData="chartData" :title="chartTitle" @clickItem="clickItem"></Demo>
+        <Echarts :chartData="chartData" :title="chartTitle" @clickItem="clickItem" @addNewItem="addNewItem"></Echarts>
       </section>
     </div>
   </div>
@@ -57,7 +57,7 @@
   import ViewImages from './common/viewImages.vue'
   import Lodding from './common/lodding.vue'
   import MyWorkbench from './pc/myWorkbench/MyWorkbench.vue'
-  import Demo from './pc/Echarts.vue'
+  import Echarts from './pc/Echarts.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -157,7 +157,7 @@
       MyWorkbench,
       Lodding,
       CountDown,
-      Demo
+      Echarts
     },
     methods: {
       getChange (pri, city, area) {
@@ -168,6 +168,11 @@
       // 点击饼状图某一项之后想进行的操作
       clickItem(e) {
         console.log(e)
+      },
+      // 饼状图添加新项
+      addNewItem(obj) {
+        const len = this.chartData.rows.length
+          this.chartData.rows.push(obj)
       }
     }
   }

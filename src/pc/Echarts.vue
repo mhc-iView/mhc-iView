@@ -7,6 +7,16 @@
       :events="chartEvents"
       :settings="chartSettings"
     ></ve-pie>
+    <div class="add" v-if="this.addNew">
+      {{chartData.columns[0]}}：
+      <Input v-model="name" placeholder="请输入名称" style="width: 15%" />
+      {{chartData.columns[1]}}：
+      <Input v-model="proportion" placeholder="请输入比例" style="width: 15%" />
+      <!-- 颜色：
+      <Input v-model="color" placeholder="请输入颜色" style="width: 15%" /> -->
+      &nbsp;&nbsp;
+      <Button type="primary" @click="addNewItem">添加</Button>
+    </div>
   </div>
 </template>
 
@@ -23,7 +33,11 @@
           self.clickItem(e)
         }
       }
-      return {}
+      return {
+        name: '',
+        proportion: ''
+        // color: ''
+      }
     },
     props: {
       colorList: {
@@ -43,11 +57,35 @@
       title: {
         type: String,
         default: ''
+      },
+      addNew: {
+        type: Boolean,
+        default: true
       }
     },
     methods: {
       clickItem(e) {
         this.$emit('clickItem', e)
+      },
+      addNewItem() {
+        var $name = this.chartData.columns[0]
+        var $proportion =this.chartData.columns[1]
+        var $list = this.chartData.rows
+        var isHave = 0;
+        for(let i in $list) {
+          if($list[i].hasOwnProperty($name) && $list[i][$name] === this.name) {
+            isHave = i;
+            break;
+          }
+        }
+        if(isHave != 0) {
+          alert("名称不能重复")
+        } else {
+          var $obj = {}
+          $obj[$name] = this.name
+          $obj[$proportion] = this.proportion
+          this.$emit('addNewItem', $obj)
+        }
       }
     }
   }
@@ -59,5 +97,8 @@
   text-align: center;
   font-size: 16px;
   font-weight: 400;
+}
+.add {
+  padding-left: 28%;
 }
 </style>
