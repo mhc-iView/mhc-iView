@@ -34,7 +34,7 @@ export default {
     display: inline-block;
     height: 1em;
     width: 2px;
-    background-color: #FF8903;
+    background-color: #2d8cf0;
     margin-right: 18px;
     box-sizing: border-box;
   }
