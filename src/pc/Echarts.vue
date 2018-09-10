@@ -11,7 +11,7 @@
       {{chartData.columns[0]}}：
       <Input v-model="name" placeholder="请输入名称" style="width: 15%" />
       {{chartData.columns[1]}}：
-      <Input v-model="proportion" placeholder="请输入比例" style="width: 15%" />
+      <Input v-model="proportion" placeholder="请输入数量" style="width: 15%" />
       <!-- 颜色：
       <Input v-model="color" placeholder="请输入颜色" style="width: 15%" /> -->
       &nbsp;&nbsp;
@@ -99,6 +99,6 @@
   font-weight: 400;
 }
 .add {
-  padding-left: 28%;
+  text-align: center;
 }
 </style>
