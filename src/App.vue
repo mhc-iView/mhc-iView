@@ -42,6 +42,9 @@
       <section data-title="饼状图">
         <Echarts :chartData="chartData" :title="chartTitle" @clickItem="clickItem" @addNewItem="addNewItem"></Echarts>
       </section>
+      <section data-title="模块标题">
+        <BlockHeader :blockTitle="'申请信息'" :size="2" />
+      </section>
     </div>
   </div>
 </template>
@@ -58,6 +61,7 @@
   import Lodding from './common/lodding.vue'
   import MyWorkbench from './pc/myWorkbench/MyWorkbench.vue'
   import Echarts from './pc/Echarts.vue'
+  import BlockHeader from './pc/BlockHeader.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -157,7 +161,8 @@
       MyWorkbench,
       Lodding,
       CountDown,
-      Echarts
+      Echarts,
+      BlockHeader
     },
     methods: {
       getChange (pri, city, area) {
