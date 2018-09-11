@@ -183,6 +183,7 @@
       addNewItem(obj) {
         const len = this.chartData.rows.length
           this.chartData.rows.push(obj)
+          this.$Message.success('添加成功')
       }
     }
   }

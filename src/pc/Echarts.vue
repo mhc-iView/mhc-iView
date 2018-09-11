@@ -11,7 +11,7 @@
       {{chartData.columns[0]}}：
       <Input v-model="name" placeholder="请输入名称" style="width: 15%" />
       {{chartData.columns[1]}}：
-      <Input v-model="proportion" placeholder="请输入数量" style="width: 15%" />
+      <Input v-model="proportion" placeholder="请输入数量" @on-keyup="checkInput" style="width: 15%" />
       <!-- 颜色：
       <Input v-model="color" placeholder="请输入颜色" style="width: 15%" /> -->
       &nbsp;&nbsp;
@@ -68,24 +68,33 @@
         this.$emit('clickItem', e)
       },
       addNewItem() {
-        var $name = this.chartData.columns[0]
-        var $proportion =this.chartData.columns[1]
-        var $list = this.chartData.rows
-        var isHave = 0;
-        for(let i in $list) {
-          if($list[i].hasOwnProperty($name) && $list[i][$name] === this.name) {
-            isHave = i;
-            break;
+        if(!this.name || !this.proportion) {
+          this.$Message.error('请填写完整再添加')
+        } else {
+          var $name = this.chartData.columns[0]
+          var $proportion =this.chartData.columns[1]
+          var $list = this.chartData.rows
+          var isHave = 0;
+          for(let i in $list) {
+            if($list[i].hasOwnProperty($name) && $list[i][$name] === this.name) {
+              isHave = i;
+              break;
+            }
+          }
+          if(isHave != 0) {
+            alert("名称不能重复")
+          } else {
+            var $obj = {}
+            $obj[$name] = this.name
+            $obj[$proportion] = this.proportion
+            this.$emit('addNewItem', $obj)
+            this.name = ''
+            this.proportion = ''
           }
         }
-        if(isHave != 0) {
-          alert("名称不能重复")
-        } else {
-          var $obj = {}
-          $obj[$name] = this.name
-          $obj[$proportion] = this.proportion
-          this.$emit('addNewItem', $obj)
-        }
+      },
+      checkInput() {
+        this.proportion = this.proportion.replace(/^\D*([1-9]\d*\.?\d{0,2})?.*$/,'$1')
       }
     }
   }
