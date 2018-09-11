@@ -48,6 +48,11 @@
       <section data-title="多行文本裁剪" style="height:200px">
         <ClampLines :width="'400px'" :lines="3" />
       </section>
+      <section data-title="文本复制">
+        <span>要被复制的文字：{{copyContent}}</span>
+        <TextCopy :copyContent="copyContent" style="{width:120px;float:right;}" :size="16" />
+        <Input v-model="text" type="textarea" :rows="4" placeholder="请粘贴复制好的文字" />
+      </section>
     </div>
   </div>
 </template>
@@ -66,6 +71,7 @@
   import Echarts from './pc/Echarts.vue'
   import BlockHeader from './pc/BlockHeader.vue'
   import ClampLines from './pc/ClampLines.vue'
+  import TextCopy from './pc/TextCopy.vue'
 
   const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"CORN"}],"name":""},{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},{"market_type":"forexdata","symbol":"XAGUSD"},{"market_type":"forexdata","symbol":"AUTD"},{"market_type":"forexdata","symbol":"AGTD"}],"name":"贵金属"},{"items":[{"market_type":"forexdata","symbol":"CORN"},{"market_type":"forexdata","symbol":"WHEAT"},{"market_type":"forexdata","symbol":"SOYBEAN"},{"market_type":"forexdata","symbol":"SUGAR"}],"name":"农产品"},{"items":[{"market_type":"forexdata","symbol":"UKOIL"},{"market_type":"forexdata","symbol":"USOIL"},{"market_type":"forexdata","symbol":"NGAS"}],"name":"能源化工"}]'
   export default {
@@ -151,7 +157,9 @@
             { '水果': '葡萄', '数量': 3792 },
             { '水果': '芒果', '数量': 4593 }
           ]
-        }
+        },
+        // 文本复制
+        copyContent: '啦啦啦啦啦啦'
       }
     },
     components: {
@@ -167,7 +175,8 @@
       CountDown,
       Echarts,
       BlockHeader,
-      ClampLines
+      ClampLines,
+      TextCopy
     },
     methods: {
       endFun() {
@@ -185,8 +194,8 @@
       // 饼状图添加新项
       addNewItem(obj) {
         const len = this.chartData.rows.length
-          this.chartData.rows.push(obj)
-          this.$Message.success('添加成功')
+        this.chartData.rows.push(obj)
+        this.$Message.success('添加成功')
       }
     }
   }
