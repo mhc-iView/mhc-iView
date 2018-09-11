@@ -50,8 +50,8 @@
       </section>
       <section data-title="文本复制">
         <span>要被复制的文字：{{copyContent}}</span>
-        <TextCopy :copyContent="copyContent" style="{width:120px;float:right;}" :size="16" />
-        <Input v-model="text" type="textarea" :rows="4" placeholder="请粘贴复制好的文字" />
+        <TextCopy :copyContent="copyContent" :size="16" :copiedFun="copiedFun" />
+        <Input v-model="text" type="textarea" :rows="2" placeholder="请粘贴复制好的文字" />
       </section>
     </div>
   </div>
@@ -196,6 +196,10 @@
         const len = this.chartData.rows.length
         this.chartData.rows.push(obj)
         this.$Message.success('添加成功')
+      },
+      // 文本复制后的回调
+      copiedFun() {
+        console.log('copied')
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="TextCopy">
-    <Icon v-if="!copied" type="md-copy" ref='sendinfo' @click="copy" color="#000" :size="this.size" />
+    <Icon v-if="!copied" type="md-copy" ref='sendinfo' @click="copy" :color="this.color" :size="this.size" title="点击复制" />
     <Icon v-if="copied" type="md-checkmark" color="#42b983" :size="this.size" />
   </div>
 </template>
@@ -10,7 +10,6 @@ export default {
   name: 'TextCopy',
   data() {
     return {
-      text: '',
       copied: false
     }
   },
@@ -21,6 +20,13 @@ export default {
     size: {
       type: Number,
       default: 24
+    },
+    color: {
+      type: String,
+      default: '#000'
+    },
+    copiedFun: {
+      type: Function
     }
   },
   methods: {
@@ -44,6 +50,7 @@ export default {
         this.copied = true
         setTimeout(() => { 
           this.copied = false
+          this.copiedFun()
         }, 500)
       } catch (err) {
         alert('Oops, 看起来您的浏览器不支持自动拷贝, 请选中以上文字复制吧')
@@ -58,6 +65,7 @@ export default {
 <style lang="scss" scoped>
 .TextCopy {
   display: inline;
+  cursor: pointer;
 }
 </style>
 
