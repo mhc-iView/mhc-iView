@@ -1,7 +1,11 @@
 <template>
   <div class="TextCopy">
-    <Icon v-if="!copied" type="md-copy" ref='sendinfo' @click="copy" :color="this.color" :size="this.size" title="点击复制" />
-    <Icon v-if="copied" type="md-checkmark" color="#42b983" :size="this.size" />
+    <Tooltip v-if="!copied" content="复制文本" placement="top">
+      <Icon v-if="!copied" type="md-copy" ref='sendinfo' @click="copy" :color="this.color" :size="this.size" />
+    </Tooltip>
+    <Tooltip v-if="copied" content="复制成功" placement="top">
+      <Icon v-if="copied" type="md-checkmark" color="#42b983" :size="this.size" />
+    </Tooltip>
   </div>
 </template>
 
