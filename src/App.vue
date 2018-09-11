@@ -25,7 +25,7 @@
         <ViewImages :imageList="photos" :title="title"/>
       </section>
       <section data-title="倒计时">
-        <CountDown :endTime="endTime"></CountDown>
+        <CountDown :endTime="endTime" :endFun="endFun"></CountDown>
       </section>
       <section data-title="省市区联动">
         <span style="margin-left:40%;">地址：{{ `${privance} ${city} ${area}` }}</span><br/>
@@ -170,6 +170,9 @@
       ClampLines
     },
     methods: {
+      endFun() {
+        console.log('啦啦啦啦啦啦~')
+      },
       getChange (pri, city, area) {
         this.privance = pri
         this.city = city

@@ -1,8 +1,8 @@
 <template>
   <div class="cd_container">
     <div class="cd_time" v-if="!this.msg">
-      <label>{{ day }}</label>
-      <label>天</label>
+      <label v-if="this.day">{{ day }}</label>
+      <label v-if="this.day">天</label>
       <label>{{ hr }}</label>
       <label style="width: 20px;">:</label>
       <label>{{ min }}</label>
@@ -31,6 +31,9 @@ export default {
     endTime: {
       type: String,
       default: new Date()
+    },
+    endFun: {
+      type: Function
     }
   },
   mounted () {
@@ -57,6 +60,7 @@ export default {
         }, 1000)
       } else {
         this.msg = '倒计时结束'
+        this.endFun ? this.endFun() : null
       }
     }
   }
