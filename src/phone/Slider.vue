@@ -89,7 +89,6 @@
         }
         if (this.loop && !isResize) {
           width += 2 * sliderWidth
-          console.log(2222222222222)
         }
 
         this.$refs.sliderGroup.style.width = width + 'px'
@@ -108,11 +107,11 @@
 
         this.slider.on('scrollEnd', () => {  // 滚动派发的事件
           let pageIndex = this.slider.getCurrentPage().pageX
-          console.log(pageIndex)
+
           if (this.loop) {
             pageIndex -= 1
           }
-          console.log(pageIndex)
+
           this.currentPageIndex = pageIndex
 
           if (this.autoPlay) {  // 这个才是循环触发
