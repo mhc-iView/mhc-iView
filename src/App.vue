@@ -45,7 +45,7 @@
       <section data-title="模块标题">
         <BlockHeader :blockTitle="'申请信息'" :size="2" />
       </section>
-      <section data-title="多行文本裁剪">
+      <section data-title="多行文本裁剪" style="height:200px">
         <ClampLines :width="'400px'" :lines="3" />
       </section>
     </div>
