@@ -6,6 +6,7 @@
     <Tooltip v-if="copied" content="复制成功" placement="top">
       <Icon v-if="copied" type="md-checkmark" color="#42b983" :size="this.size" />
     </Tooltip>
+    <textarea class="textarea" ref="textarea" cols="3" rows="2" readonly=""></textarea>
   </div>
 </template>
 
@@ -35,17 +36,8 @@ export default {
   },
   methods: {
     copy() {
-      const faker = document.createElement('textarea')
-      faker.style.visibility = 'none'
-      faker.style.position = 'fixed'
-      faker.style.top = 0
-      faker.style.left = 0
-      faker.style.zIndex = -9999
-      faker.setAttribute('readonly', '') // 防止移动端弹出输入法
+      const faker = this.$refs.textarea
       faker.value = this.copyContent
-
-      document.body.appendChild(faker)
-
       faker.focus()
       faker.setSelectionRange(0, this.copyContent.length)
 
@@ -59,7 +51,7 @@ export default {
       } catch (err) {
         alert('Oops, 看起来您的浏览器不支持自动拷贝, 请选中以上文字复制吧')
       } finally {
-        document.body.removeChild(faker)
+        // document.body.removeChild(faker)
       }
     }
   }
@@ -70,6 +62,13 @@ export default {
 .TextCopy {
   display: inline;
   cursor: pointer;
+  .textarea {
+    visibility: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+  }
 }
 </style>
 
